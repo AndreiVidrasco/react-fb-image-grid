@@ -1,4 +1,3 @@
-import './css/style.css';
-import FbGridImages from './components/Images'
+import FbCarousel from "./components/FbCarousel/index";
 
-export default FbGridImages;
+export default FbCarousel;
