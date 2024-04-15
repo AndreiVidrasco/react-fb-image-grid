@@ -11,30 +11,29 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component --copy-files",
-    "clean": "nwb clean-module && nwb clean-demo",
+    "build": "npm run build:component && npm run build:demo",
+    "build:component": "babel src -d lib",
+    "build:demo": "react-scripts build",
+    "clean": "rm -rf lib build",
     "prepublishOnly": "npm run build",
-    "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "start": "npm run start:demo",
+    "start:demo": "react-scripts start",
+    "test": "npm run test:unit",
+    "test:unit": "react-scripts test",
+    "test:coverage": "npm run test:unit -- --coverage",
+    "test:watch": "npm run test:unit -- --watch"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@material-ui/core": "^3.1.2",
-    "@material-ui/icons": "^3.0.1",
-    "@mui/material": "^5.10.6",
-    "react-icons": "^4.4.0",
-    "react-player": "^2.11.0"
+    "@mui/material": "^5.15.15",
+    "react-icons": "^5.1.0",
+    "react-player": "^2.16.0"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^18"
   },
   "devDependencies": {
-    "nwb": "0.23.x",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "author": "Mohammad Kashif Sulaiman",
   "homepage": "https://github.com/Expertizo/react-fb-image-grid",
